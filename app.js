@@ -13,6 +13,12 @@ app.use(express.static('assets'))
 //Her er mine routes
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
+    app.use(session({
+        secret: 'f8Kp2vN9xQ4mL7zR3wT6yH1bC5dJ0sA8',
+        saveUninitialized: true,
+        resave: true
+    }))
+
 //app.use('/chats', chatsRouter)
 //app.use('/messages', messagesRouter)
 
