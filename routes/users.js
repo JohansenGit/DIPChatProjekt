@@ -38,12 +38,11 @@ users.put('/:id', (req, res) => {
     }
 })
 
-users.post('/', async (req, res) => {
-    const { username, password, creationDate, level, id} = req.body 
+users.post('/createUser', async (req, res) => {
+    const { username, password, level, id} = req.body 
+    await addUser(username, password, Date.now(), level, id)
 
-   await addUser(username, password, creationDate, level, id)
-
-    res.redirect('/users')
+    res.redirect('/chats')
 });
 
 users.post('/:id', (req, res) =>{
