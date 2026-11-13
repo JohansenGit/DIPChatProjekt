@@ -8,3 +8,6 @@ import {chat} from '../models/chat.js'
     const chats = await getChats()
     res.render('chats', {chats : chats})
  })
+
+
+ export{chats}

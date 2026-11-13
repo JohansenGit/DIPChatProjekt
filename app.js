@@ -2,7 +2,7 @@
 import express from 'express'
 import { users as usersRouter } from './routes/users.js'
 import { login as loginRouter } from './routes/login.js' 
-//import { chats as chatsRouter} 
+import { chats as chatsRouter} from './routes/chats.js'
 import session from 'express-session'
 
 
@@ -15,6 +15,7 @@ app.use(express.static('assets'))
 //Her er mine routes
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
+app.use('/chats', chatsRouter)
 app.use(session({
     secret: 'f8Kp2vN9xQ4mL7zR3wT6yH1bC5dJ0sA8',
     saveUninitialized: true,

@@ -1,0 +1,15 @@
+html
+    head
+        title Opret Ny chat
+        script(src="/methods.js" defer)
+
+    body
+        label Opret Ny chat
+        form(action="/createUser", method="POST")
+            label Brugernavn: 
+                input(type="text", name="username", placeholder="username")
+            label Kodeord: 
+                input(type="text", name="password", placeholder="password")
+            
+            
+            button(type="submit") Opret chat
