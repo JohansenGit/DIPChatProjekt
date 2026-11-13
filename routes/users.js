@@ -39,7 +39,10 @@ users.put('/:id', (req, res) => {
 
 users.post('/', async (req, res) => {
     const username = req.body.username
+    const password = req.body.password
+    const creationDate = req.body.creationDate
     const level = req.body.level
+    const id = req.body.id
 
     addUser(username, level)
 
