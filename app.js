@@ -11,22 +11,27 @@ const app = express()
 app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('assets'))
+app.use(express.json())
 
-//Her er mine routes
-app.use('/users', usersRouter)
-app.use('/login', loginRouter)
-app.use('/chats', chatsRouter)
 app.use(session({
     secret: 'f8Kp2vN9xQ4mL7zR3wT6yH1bC5dJ0sA8',
     saveUninitialized: true,
     resave: true
 }))
 
+
+
+//Her er mine routes
+app.use('/users', usersRouter)
+app.use('/login', loginRouter)
+app.use('/chats', chatsRouter)
+
+
 app.get('/', (req, res) => {
-    res.redirect('/login')
+    res.render('login')    
 })
 
-//app.use('/chats', chatsRouter)
+
 //app.use('/messages', messagesRouter)
 
 app.listen(6767)
