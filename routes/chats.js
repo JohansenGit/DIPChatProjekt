@@ -1,13 +1,12 @@
 import express from 'express'
-import {getchats} from '../service.js'
-import {chat} from '../models/chat.js'
+import { getChats } from '../service.js'
 
- const chats = express.Router()
 
- chats.get('/', async (req, res) =>{
+const chats = express.Router()
+
+chats.get('/', async (req, res) => {
     const chats = await getChats()
-    res.render('chats', {chats : chats})
- })
+    res.render('chats', { chats: chats })
+})
 
-
- export{chats}
+export { chats }

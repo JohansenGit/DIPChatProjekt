@@ -40,7 +40,8 @@ users.put('/:id', (req, res) => {
 
 users.post('/createUser', async (req, res) => {
     const { username, password, level, id} = req.body 
-    await addUser(username, password, Date.now(), level, id)
+    console.log(level);
+    await addUser(username, password, Date().toLocaleString('da-DK'), level, 1)
 
     res.redirect('/chats')
 });
