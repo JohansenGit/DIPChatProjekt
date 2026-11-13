@@ -9,9 +9,10 @@ users.get('/', async (req, res)=>{
 })
 
 //Opret bruger side:
-users.get('/create', (req, res) => {
+users.get('/createUser', (req, res) => {
     res.render('createUser')
 });
+
 
 users.get('/:id', async (req, res)=>{
     const user = await getUser(req.params.id)
@@ -38,13 +39,9 @@ users.put('/:id', (req, res) => {
 })
 
 users.post('/', async (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-    const creationDate = req.body.creationDate
-    const level = req.body.level
-    const id = req.body.id
+    const { username, password, creationDate, level, id} = req.body 
 
-    addUser(username, level)
+   await addUser(username, password, creationDate, level, id)
 
     res.redirect('/users')
 });

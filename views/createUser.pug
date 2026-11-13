@@ -1,0 +1,13 @@
+html
+    head
+        title Opret Ny Bruger
+        script(src="/methods.js" defer)
+
+    body
+        label Opret Ny Bruger
+        form(action="/create", method="POST")
+            label Brugernavn: 
+                input(type="text", name="username", placeholder="username")
+            label Kodeord: 
+                input(type="text", name="password", placeholder="password")
+            button(type="submit") Login
