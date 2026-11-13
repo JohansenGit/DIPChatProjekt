@@ -3,6 +3,12 @@ html
         title Login 
         script(src="/methods.js" defer)
         body
-            h1 
+            form(action="/login", method="POST")
+                label username
+                    input(type="text", name="username")
+
+                label password
+                    input(type="text", name="password")
+                button(type="submit") Login 
             
       
