@@ -1,14 +1,13 @@
 html
-    head 
-        title Login 
+    head
+        title Login
         script(src="/methods.js" defer)
-        body
-            form(action="/login", method="POST")
-                label username
-                    input(type="text", name="username")
 
-                label password
-                    input(type="text", name="password")
-                button(type="submit") Login 
-            
-      
+    body
+        label Login her:
+        form(action="/login", method="POST")
+             
+            input(type="text", name="username", placeholder="username")
+
+            input(type="text", name="password", placeholder="password")
+            button(type="submit") Login
