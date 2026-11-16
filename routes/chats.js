@@ -9,7 +9,7 @@ chats.get('/', async (req, res) => {
     res.render('chats', { chats: chats })
 })
 
-//Opret chat side:
+//CreateChat side:
 chats.get('/createChat', (req, res) => {
     res.render('createChat')
 });
