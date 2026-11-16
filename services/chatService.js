@@ -31,6 +31,13 @@ const chatsQueryDocument = await getDocs(
 
     chatsQueryDocument.docs.forEach(qs => {chats.push(qs.data())}) 
     return chats
+
+async function getChat(id) {
+    const chatQueryDocument = await getDoc(
+        doc(chatCollection.withConverter(chatConverter), id)
+    )
+
+    return chatQueryDocument.data()
 }
 
 async function addChat(chatName, creationDate, owner, messageArray, id){
@@ -40,4 +47,4 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
 const chatCollection = collection(dbRef, 'chats')
 
 
-export{ getChats, addChat, updateChat }
+export{getChat, getChats, addChat, updateChat }
