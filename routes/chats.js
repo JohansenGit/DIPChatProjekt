@@ -1,5 +1,5 @@
 import express from 'express'
-import { getChats, getChat } from '../services/service.js'
+import { getChats, getChat } from '../services/chatService.js'
 
 
 const chats = express.Router()
