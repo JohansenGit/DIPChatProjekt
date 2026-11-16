@@ -8,4 +8,4 @@ class Chat{
     }
 }
 
-export { Chat }
+export {Chat}

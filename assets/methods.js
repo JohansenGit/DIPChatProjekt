@@ -32,3 +32,4 @@ document.querySelector('#editBtn').addEventListener('click', async (event) =>{
         alert('Kunne ikke gemme navnet: ' + error.message)
     }
 })
+
