@@ -1,0 +1,7 @@
+{
+  "username": "123",
+  "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+  "creationDate": "Mon Nov 16 2026 20:51:02 GMT+0100 (Centraleuropæisk normaltid)",
+  "level": "1",
+  "id": "8bb402e5-8254-4c7a-8468-08e8a8920ec7"
+}

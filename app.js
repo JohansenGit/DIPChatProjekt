@@ -22,7 +22,7 @@ app.use(session({
 
 
 
-//Her er mine routes
+//Middleware
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/chats', chatsRouter)

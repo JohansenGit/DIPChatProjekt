@@ -3,6 +3,9 @@ import {User} from '../models/user.js'
 import crypto from 'crypto'
 import { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore"
 
+import fs from 'node:fs/promises'
+import { json } from "node:stream/consumers"
+
 //Converter til/fra firestore
 const userConverter = {
     toFirestore : user =>{
@@ -23,8 +26,15 @@ const userCollection = collection(dbRef, 'users')
 
 async function addUser(username, password, creationDate, level, id){
     const user = new User(username, password, creationDate, level, id)
-    await addDoc(userCollection.withConverter(userConverter), user)
+    //await addDoc(userCollection.withConverter(userConverter), user)
+
+    try {
+        await fs.writeFile('userFile.txt', JSON.stringify(user, null, 2) + '\n');
+    } catch (err) {
+        console.log(err);
+    }
 }
+
 
 async function getUser(id){
     const userQueryDocument = await getDoc(
@@ -49,23 +59,34 @@ async function getUsers(){
         return users
 }
 
+async function getUsersFile() {
+    const users = []
+    try {
+        const data = await fs.readFile('userFile.txt', { encoding: 'utf8' });
+        users.push(data)
+    } catch (err) {
+        console.log(err);
+    }
+    
+}
+
 
 async function validateUser(username, password){
     // henter alle users i databaen
-    const users = await getUsers()
-
-    // lavet et index ved at sammenligner argumenterne username og password med username og password i databen, 
-    // hvis der er et match sÃ¦ttes index. 
+    //const users = await getUsers()
+    const fileUsers = getUsersFile()
+   
     let hashedPassword = crypto.createHash('sha256').update(password).digest('hex')
-    const index = users.findIndex(u=>u.username == username && u.password == hashedPassword)
+    const index = fileUsers.findIndex(u=>u.username == username && u.password == hashedPassword)
 
+    
 
     let isLoggedIn = undefined
 
-    if (index >= 0) {
-        isLoggedIn = users[index].id
+    if (index2 >= 0) {
+        isLoggedIn = fileUsers[index].id
     }
     return isLoggedIn
 }
 
-export{addUser, getUser, deleteUser, updateUser, getUsers, validateUser}
+export{addUser, getUser, deleteUser, updateUser, getUsers, validateUser, getUsersFile}
