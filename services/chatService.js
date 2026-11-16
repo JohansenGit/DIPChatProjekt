@@ -17,6 +17,8 @@ const chatConverter = {
     }
 }
 
+const chatCollection = collection(dbRef, 'chats')
+
 async function updateChat(chat) {
     await updateDoc(doc(chatCollection, chat.id), {
         messageArray: chat.messageArray
@@ -44,7 +46,7 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
     const chat = new Chat(chatName, creationDate, owner, messageArray, id)
     await addDoc(chatCollection.withConverter(chatConverter), chat)
 }
-const chatCollection = collection(dbRef, 'chats')
+
 
 
 export{getChat, getChats, addChat, updateChat }
