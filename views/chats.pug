@@ -3,9 +3,9 @@ html
         title Chat oversigt 
     
     body 
-        button(type="button" onclick="window.location.href='/users/opretchat'") Opret chat
+        button(type="button" onclick="window.location.href='/users/createChat'") Opret chat
     
-        ul 
+        ul
             each chat in chats
                 li 
                     p #{chat.chatName}
