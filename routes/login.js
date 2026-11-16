@@ -13,7 +13,6 @@ login.post('/', async (req, res)=>{
     const userId = await validateUser(username, password)
     if (userId !== undefined) {
         req.session.isLoggedIn = userId
-        req.session.username = user.username
         res.redirect('/chats')
     } else {
         res.render('login')
