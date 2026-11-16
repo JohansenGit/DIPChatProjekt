@@ -7,3 +7,5 @@ class chat{
         this.id = id
     }
 }
+
+export {chat}
