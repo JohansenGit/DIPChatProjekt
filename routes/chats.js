@@ -5,7 +5,7 @@ import { getChats, getChat } from '../services/chatService.js'
 const chats = express.Router()
 
 chats.get('/', async (req, res) => {
-    const chats = await getChat()
+    const chats = await getChats()
     res.render('chats', { chats: chats })
 })
 

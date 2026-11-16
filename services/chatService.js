@@ -2,6 +2,8 @@ import { dbRef } from "./service.js"
 import {Chat} from '../models/chat.js'
 import { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore"
 
+const chatCollection = collection(dbRef, 'chats')
+
 const chatConverter = {
     toFirestore : chat =>{
         return{chatName : chat.chatName, creationDate : chat.creationDate,
@@ -16,8 +18,6 @@ const chatConverter = {
         )
     }
 }
-
-const chatCollection = collection(dbRef, 'chats')
 
 async function updateChat(chat) {
     await updateDoc(doc(chatCollection, chat.id), {
