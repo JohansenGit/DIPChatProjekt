@@ -1,11 +1,11 @@
 import express from 'express'
-import { getChats } from '../service.js'
+import { getChats, getChat } from '../service.js'
 
 
 const chats = express.Router()
 
 chats.get('/', async (req, res) => {
-    const chats = await getChats()
+    const chats = await getChat()
     res.render('chats', { chats: chats })
 })
 
@@ -15,7 +15,7 @@ chats.get('/createChat', (req, res) => {
 });
 
 chats.get('/:id', async (req, res)=>{
-    const chat = await getChat(req.params.id)
+    const chat = await getChats(req.params.id)
     res.render('chat', { chat: chat})
 })
 

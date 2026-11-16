@@ -7,3 +7,5 @@ class Message{
         this.id = id
     }
 }
+
+export {Message}

@@ -3,6 +3,7 @@ import express from 'express'
 import { users as usersRouter } from './routes/users.js'
 import { login as loginRouter } from './routes/login.js' 
 import { chats as chatsRouter} from './routes/chats.js'
+import { messages as messagesRouter } from './routes/messages.js'
 import session from 'express-session'
 
 
@@ -25,7 +26,7 @@ app.use(session({
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/chats', chatsRouter)
-
+app.use('/chats', messagesRouter)
 
 app.get('/', (req, res) => {
     res.render('login')    
