@@ -31,7 +31,7 @@ const chatsQueryDocument = await getDocs(
 
     chatsQueryDocument.docs.forEach(qs => {chats.push(qs.data())}) 
     return chats
-
+}
 async function getChat(id) {
     const chatQueryDocument = await getDoc(
         doc(chatCollection.withConverter(chatConverter), id)
