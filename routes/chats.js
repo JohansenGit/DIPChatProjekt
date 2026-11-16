@@ -1,5 +1,5 @@
 import express from 'express'
-import { getChats } from '../service.js'
+import { getChats, addChat } from '../service.js'
 
 
 const chats = express.Router()
@@ -37,5 +37,17 @@ chats.put('/:id', (req, res) => {
         next (error)
     }
 })
+
+chats.post('/createChat', async (req, res) => {
+    const { chatName} = req.body 
+
+    const id = crypto.randomUUID();
+    const creationDate = Date().toLocaleString('da-DK')
+    const owner = req.session.username
+    const messageArray = new Array()
+    await addChat(chatName, creationDate, owner , messageArray, id)
+
+    res.redirect('/chats')
+});
 
 export { chats }
