@@ -1,4 +1,4 @@
-class chat{
+class Chat{
     constructor(chatName, creationDate, owner, messageArray, id){
         this.chatName = chatName
         this.creationDate = creationDate
@@ -8,4 +8,4 @@ class chat{
     }
 }
 
-export {chat}
+export { Chat }
