@@ -17,6 +17,11 @@ const chatConverter = {
     }
 }
 
+async function updateChat(chat) {
+    await updateDoc(doc(chatCollection, chat.id), {
+        messageArray: chat.messageArray
+    })
+}
 
 //Metoder for chat
 async function getChats() {
@@ -35,4 +40,4 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
 const chatCollection = collection(dbRef, 'chats')
 
 
-export{ getChats, addChat }
+export{ getChats, addChat, updateChat }
