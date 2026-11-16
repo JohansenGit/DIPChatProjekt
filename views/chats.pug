@@ -8,4 +8,4 @@ html
         ul 
             each chat in chats
                 li 
-                    p #{chat.chatName}
+                     a(href=`/chats/${chat.id}`)= chat.chatName

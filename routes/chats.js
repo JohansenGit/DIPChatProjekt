@@ -9,4 +9,10 @@ chats.get('/', async (req, res) => {
     res.render('chats', { chats: chats })
 })
 
+chats.get('/:id', async (req, res) => {
+    const chat = await getChat(req.params.id)
+
+    res.render('chat', { chat: chat })
+})
+
 export { chats }
