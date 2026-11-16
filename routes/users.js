@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import {getUser, getUsers, deleteUser, updateUser, addUser } from '../service.js'
 import { User } from '../models/user.js'
-import crypto from 'node:crypto';
+import crypto from 'crypto';
 
 const users = Router()
 
@@ -44,8 +44,9 @@ users.post('/createUser', async (req, res) => {
     const { username, password, level} = req.body 
 
     const id = crypto.randomUUID();
+    const passwordHash = crypto.createHash('sha256').update(password).digest('hex')
 
-    await addUser(username, password, Date().toLocaleString('da-DK'), level, id)
+    await addUser(username, passwordHash, Date().toLocaleString(), level, id)
 
     res.redirect('/chats')
 });
