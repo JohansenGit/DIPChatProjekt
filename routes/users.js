@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getUser, getUsers, deleteUser, updateUser, addUser } from '../service.js'
+import {getUser, getUsers, deleteUser, updateUser, addUser } from '../services/userService.js'
 import { User } from '../models/user.js'
 import crypto from 'crypto';
 

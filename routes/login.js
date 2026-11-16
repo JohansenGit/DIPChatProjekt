@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { validateUser } from '../service.js'
+import { validateUser } from '../services/userService.js'
 const login = Router()
 
 
