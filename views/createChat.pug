@@ -6,10 +6,8 @@ html
     body
         label Opret Ny chat
         form(action="/chats/createChat", method="POST")
-            label Brugernavn: 
-                input(type="text", name="username", placeholder="username")
-            label Kodeord: 
-                input(type="text", name="password", placeholder="password")
+            label Chatnavn: 
+                input(type="text", name="chatName", placeholder="chatName")
             
             
             button(type="submit") Opret chat

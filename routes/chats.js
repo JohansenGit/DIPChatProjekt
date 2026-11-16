@@ -39,14 +39,14 @@ chats.put('/:id', (req, res) => {
 })
 
 chats.post('/createChat', async (req, res) => {
-    const { chatName} = req.body 
+    const {chatName} = req.body 
 
-    const id = crypto.randomUUID();
     const creationDate = Date().toLocaleString('da-DK')
     const owner = req.session.username
     const messageArray = new Array()
-    await addChat(chatName, creationDate, owner , messageArray, id)
+    const id = crypto.randomUUID();
 
+    await addChat(chatName, creationDate, owner , messageArray, id)
     res.redirect('/chats')
 });
 
