@@ -27,7 +27,7 @@ app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/chats', chatsRouter)
 app.use('/chats', messagesRouter)
-
+app.use('/userAdministration', usersRouter)
 app.get('/', (req, res) => {
     res.render('login')    
 })
