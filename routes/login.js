@@ -11,6 +11,7 @@ login.get('/', (req, res) => {
 login.post('/', async (req, res)=>{
     const {username, password} = req.body
     const userId = await validateUser(username, password)
+    
     if (userId !== undefined) {
         req.session.isLoggedIn = userId
         req.session.username = username;
