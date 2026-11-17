@@ -1,0 +1,15 @@
+html
+    head
+        title Dine beskeder
+    body
+        h1 Dine beskeder
+
+        if messages.length > 0
+            ul
+                each message in messages
+                    li
+                        strong= message.chatName
+                        p= message.message
+                        small= message.creationDate
+        else
+            p Du har ikke sendt nogen beskeder endnu.
