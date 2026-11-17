@@ -4,6 +4,9 @@ html
     
     body 
         button(type="button" onclick="window.location.href='/chats/createChat'") Opret chat
+
+        button(type="button" onclick="window.location.href='/chats/ + "chatID"'") Se dine beskeder
+
     
         ul
             each chat in chats
