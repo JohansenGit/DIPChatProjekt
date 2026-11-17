@@ -41,11 +41,12 @@ users.put('/:id', (req, res) => {
 })
 
 users.post('/createUser', async (req, res) => {
-    const { username, password, level} = req.body 
+    const { username, password, level } = req.body 
 
     const id = crypto.randomUUID();
     const passwordHash = crypto.createHash('sha256').update(password).digest('hex')
 
+    //await addUser(username, passwordHash, Date().toLocaleString(), level, id)
     await addUser(username, passwordHash, Date().toLocaleString(), level, id)
 
     res.redirect('/chats')
