@@ -7,6 +7,6 @@ html
             each message in chat.messageArray
                 li= message.message
 
-        form(action="/chats/" + chat.id method="POST")
+        form(action="/chats/" + chat.id + "/messages" method="POST")
             input(type="text" name="message" placeholder="Message...") 
             button(type="submit") Send

@@ -21,7 +21,13 @@ const chatConverter = {
 
 async function updateChat(chat) {
     await updateDoc(doc(chatCollection, chat.id), {
-        messageArray: chat.messageArray
+        messageArray: chat.messageArray.map(message => ({
+            message: message.message,
+            creationDate: message.creationDate,
+            owner: message.owner,
+            connectedChat: message.connectedChat,
+            id: message.id
+        }))
     })
 }
 
