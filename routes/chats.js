@@ -15,7 +15,8 @@ chats.get('/createChat', (req, res) => {
 });
 
 chats.get('/:id', async (req, res)=>{
-    const chat = await getChats(req.params.id)
+    const chat = await getChat(req.params.id)
+    console.log(chat)
     res.render('chat', { chat: chat})
 })
 
