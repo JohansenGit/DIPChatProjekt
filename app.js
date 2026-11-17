@@ -16,7 +16,6 @@ app.use(express.json())
 
 app.use('/methods', express.static('methods'))
 
-
 app.use(session({
     secret: 'f8Kp2vN9xQ4mL7zR3wT6yH1bC5dJ0sA8',
     saveUninitialized: true,
@@ -35,6 +34,10 @@ app.get('/', (req, res) => {
     res.render('login')    
 })
 
+app.post('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('/')
+})
 
 //app.use('/messages', messagesRouter)
 
