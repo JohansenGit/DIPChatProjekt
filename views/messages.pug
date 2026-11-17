@@ -8,8 +8,6 @@ html
             ul
                 each message in messages
                     li
-                        strong= message.chatName
                         p= message.message
-                        small= message.creationDate
         else
             p Du har ikke sendt nogen beskeder endnu.
