@@ -5,6 +5,7 @@ import { getChats, getChat } from '../services/chatService.js'
 const chats = express.Router()
 
 chats.get('/', async (req, res) => {
+    const userID = req.session.username;
     const chats = await getChats()
     res.render('chats', { chats: chats })
 })
@@ -20,6 +21,14 @@ chats.get('/:id', async (req, res)=>{
     res.render('chat', { chat: chat})
 })
 
+//Hent alle beskeder fra en user
+chats.get('/:userID/messages', async (req, res) => {
+    const userID = req.params.userID
+
+    const messages = await getMessages(userID)
+
+    res.render('chat', { messages: messages })
+})
 
 chats.delete('/:id', async (req, res, next) =>{
     try {

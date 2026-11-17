@@ -4,6 +4,14 @@ html
     
     body 
         button(type="button" onclick="window.location.href='/chats/createChat'") Opret chat
+
+        button(type="button" onclick="window.location.href='/chats/{userID}/messages'") Se dine beskeder
+
+        button(type="button" onclick="window.location.href='/useradministration'") Administrer brugere
+
+        button(type="button" onclick="window.location.href='/login'") Log ud
+
+
     
         ul
             each chat in chats
