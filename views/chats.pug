@@ -1,19 +1,19 @@
 html
-    head  
-        title Chat oversigt 
-    
-    body 
+    head
+        title Chat oversigt
+        script(src="/methods/methods.js" defer)
+
+    body
         button(type="button" onclick="window.location.href='/chats/createChat'") Opret chat
 
-        button(type="button" onclick="window.location.href='/chats/{userID}/messages'") Se dine beskeder
+        button(type="button" onclick="window.location.href='/chats/#{userID}/messages'") Se dine beskeder
 
         button(type="button" onclick="window.location.href='/userAdministration'") Administrer brugere
 
         button(type="button" onclick="window.location.href='/login'") Log ud
 
-
-    
         ul
             each chat in chats
-                li 
-                     a(href=`/chats/${chat.id}`)= chat.chatName
+                li
+                    a(href=`/chats/${chat.id}`)= chat.chatName
+                    button.deleteBtn(data-id=chat.id data-type="chats") Slet chat

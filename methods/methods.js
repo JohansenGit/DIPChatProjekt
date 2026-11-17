@@ -2,15 +2,24 @@
 const link = '/user/' + nameInput.dataset.id */
 
 
+document.querySelectorAll('.deleteBtn').forEach(button => {
+    button.addEventListener('click', async (event) => {
+        console.log("delete")
+        const id = event.currentTarget.dataset.id
+        const type = event.currentTarget.dataset.type
 
-document.querySelector('#deleteBtn').addEventListener('click', async (event)=>{
-    const userid = event.currentTarget.dataset.userid
-    console.log(userid)
-    event.preventDefault()
-    if(!confirm('Er du sikker på du vil slette?')) return
+        event.preventDefault()
 
-        const response = await fetch('/users/' + userid, {method: 'DELETE'})
-            window.location = '/users'
+        if (!confirm('Er du sikker på du vil slette?')) return
+
+        const response = await fetch(`/${type}/${id}`, {
+            method: 'DELETE'
+        })
+
+        if (response.ok) {
+            window.location = `/${type}`
+        }
+    })
 })
 
 document.querySelector('#editBtn').addEventListener('click', async (event) =>{

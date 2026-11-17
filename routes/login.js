@@ -10,10 +10,11 @@ login.get('/', (req, res) => {
 
 login.post('/', async (req, res)=>{
     const {username, password} = req.body
-    const userId = await validateUser(username, password)
-    if (userId !== undefined) {
-        req.session.isLoggedIn = userId
-        req.session.username = username;
+    const isLoggedIn = await validateUser(username, password)
+    
+    if (isLoggedIn !== undefined) {
+        req.session.isLoggedIn = isLoggedIn
+        req.session.username = username
         res.redirect('/chats')
     } else {
         res.render('login')
