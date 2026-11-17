@@ -15,6 +15,9 @@ users.get('/createUser', (req, res) => {
     res.render('createUser')
 });
 
+users.get('/userAdministration', (req, res) => {
+    res.render('userAdministration')
+})
 
 users.get('/:id', async (req, res)=>{
     const user = await getUser(req.params.id)

@@ -1,13 +1,18 @@
 import express from 'express'
-import { getChats, getChat } from '../services/chatService.js'
+import { getChats, getChat, addChat } from '../services/chatService.js'
 
 
 const chats = express.Router()
 
 chats.get('/', async (req, res) => {
-    const userID = req.session.username;
-    const chats = await getChats()
-    res.render('chats', { chats: chats })
+    if (req.session.isLoggedIn) {
+        const userID = req.session.userID
+        const chats = await getChats()
+        res.render('chats', { chats: chats })
+    } else {
+        res.render('login')
+    }
+    
 })
 
 //CreateChat side:
@@ -17,18 +22,9 @@ chats.get('/createChat', (req, res) => {
 
 chats.get('/:id', async (req, res)=>{
     const chat = await getChat(req.params.id)
-    console.log(chat)
     res.render('chat', { chat: chat})
 })
 
-//Hent alle beskeder fra en user
-chats.get('/:userID/messages', async (req, res) => {
-    const userID = req.params.userID
-
-    const messages = await getMessages(userID)
-
-    res.render('chat', { messages: messages })
-})
 
 chats.delete('/:id', async (req, res, next) =>{
     try {
