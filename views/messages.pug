@@ -1,16 +1,29 @@
 html
     head
         title Dine beskeder
+        link(rel="stylesheet" href="/css/messages.css")
+
     body
-        h1 Dine beskeder
-        link(rel="stylesheet" href="/css/createUser.css")
-        
-        if messages.length > 0
-            ul
-                each message in messages
-                    li
-                        strong= message.chatName
-                        p= message.message
-                        small= message.creationDate
-        else
-            p Du har ikke sendt nogen beskeder endnu.
+        .messagesContainer
+            header
+                div
+                    h1 Dine beskeder
+                    p.subtitle Her kan du se beskeder, du har sendt
+
+                a.backBtn(href="/chats") Tilbage til chats
+
+            main
+                if messages.length > 0
+                    .messageList
+                        each message in messages
+                            .messageCard
+                                .messageHeader
+                                    strong= message.chatName
+                                    small= message.creationDate
+
+                                p= message.message
+                else
+                    .emptyState
+                        h2 Ingen beskeder endnu
+                        p Du har ikke sendt nogen beskeder endnu.
+                        a.createLink(href="/chats") Gå til dine chats

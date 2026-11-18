@@ -5,7 +5,6 @@
 
 body {
     margin: 0;
-    padding: 20px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,23 +14,29 @@ body {
     color: #f1f1f1;
 }
 
-/* LOGIN CONTAINER */
+/* LOGIN CARD */
 .loginContainer {
-    width: 100%;
-    max-width: 420px;
-    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    padding: 45px 35px;
     background: #222633;
     border: 1px solid #343a4a;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 /* HEADING */
 h1 {
-    margin-top: 0;
-    margin-bottom: 30px;
+    margin: 0 0 10px;
     color: #ffffff;
-    font-size: 28px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.loginSubtitle {
+    margin-bottom: 30px;
+    color: #a0a5b5;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -42,41 +47,35 @@ form {
     gap: 18px;
 }
 
-/* LABELS */
-label {
-    margin-bottom: -12px;
-    color: #c5c9d6;
-    font-size: 14px;
-}
-
-/* INPUTS */
-input[type="text"],
-input[type="password"] {
+/* INPUT FIELDS */
+input {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     border: 1px solid #41485c;
-    border-radius: 8px;
+    border-radius: 9px;
     outline: none;
     background: #171923;
-    color: white;
+    color: #ffffff;
     font-size: 15px;
-    transition: border-color 0.2s;
-}
-
-input:focus {
-    border-color: #5865f2;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
 input::placeholder {
     color: #858b9c;
 }
 
+input:focus {
+    border-color: #5865f2;
+    box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.15);
+}
+
 /* LOGIN BUTTON */
-button[type="submit"] {
+button {
+    width: 100%;
     margin-top: 8px;
-    padding: 13px;
+    padding: 14px;
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
     background: #5865f2;
     color: white;
     font-size: 15px;
@@ -85,41 +84,18 @@ button[type="submit"] {
     transition: background 0.2s, transform 0.2s;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background: #4752c4;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
-button[type="submit"]:active {
+button:active {
     transform: scale(0.98);
 }
 
-/* LINKS */
-a {
-    display: block;
-    margin-top: 20px;
-    color: #8b9cff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-a:hover {
-    color: #b0baff;
-    text-decoration: underline;
-}
-
-/* ERROR MESSAGE */
-.errorMessage {
-    margin-top: 15px;
-    color: #ff6b6b;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 500px) {
     .loginContainer {
-        padding: 28px;
+        padding: 35px 25px;
     }
 }
