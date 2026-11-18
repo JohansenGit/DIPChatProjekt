@@ -16,5 +16,7 @@ html
             each chat in chats
                 li
                     a(href=`/chats/${chat.id}`)= chat.chatName
-                    button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
+                    
+                    if level == 3
+                        button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
                     
