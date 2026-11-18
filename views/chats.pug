@@ -1,3 +1,4 @@
+
 html
     head
         title Chat oversigt
@@ -19,11 +20,15 @@ html
 
                 button(type="button" onclick="window.location.href='/users/administration'") Administrer brugere
 
-        ul
-            each chat in chats
-                li
-                    a(href=`/chats/${chat.id}`)= chat.chatName
-                    
-                    if level == 3
-                        button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
-                    
+                button.logoutBtn(type="button" onclick="window.location.href='/login'") Log ud
+
+            main
+                h2 Dine samtaler
+
+                ul
+                    each chat in chats
+                        li
+                            a.chatLink(href=`/chats/${chat.id}`)= chat.chatName
+
+                            if level == 3
+                                button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
