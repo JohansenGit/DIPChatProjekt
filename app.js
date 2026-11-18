@@ -15,6 +15,7 @@ app.use(express.static('assets'))
 app.use(express.json())
 
 app.use('/methods', express.static('methods'))
+app.use('/css', express.static('css'))
 
 app.use(session({
     secret: 'f8Kp2vN9xQ4mL7zR3wT6yH1bC5dJ0sA8',

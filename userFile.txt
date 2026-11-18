@@ -25,7 +25,8 @@
     "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
     "creationDate": "Tue Nov 17 2026 09:13:44 GMT+0100 (Centraleuropæisk normaltid)",
     "level": "1",
-    "id": "e08f612d-ec6d-4c3c-92fe-93559c01cad5"
+    "id": "e08f612d-ec6d-4c3c-92fe-93559c01cad5",
+    "lastSeen": "2026-11-18T09:53:59.297Z"
   },
   {
     "username": "jmj",
@@ -35,10 +36,11 @@
     "id": "e7aad716-a497-4b58-a64b-58b3067c6fa9"
   },
   {
-    "username": "nybruger",
-    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-    "creationDate": "Wed Nov 18 2026 08:47:29 GMT+0100 (Centraleuropæisk normaltid)",
+    "username": "Elias",
+    "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "creationDate": "Wed Nov 18 2026 10:48:14 GMT+0100 (Central European Standard Time)",
     "level": "3",
-    "id": "90f2ba76-7bbe-41e0-82fe-06f8d8bac387"
+    "id": "4c3a81ef-739d-4271-9c1e-8fb1a0187763",
+    "lastSeen": "2026-11-18T09:59:16.648Z"
   }
 ]

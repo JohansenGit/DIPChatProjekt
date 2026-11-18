@@ -77,8 +77,20 @@ async function validateUser(username, password) {
     return user
 }
 
+async function updateLastSeen(id) {
+    const users = await getUsers()
 
-export{ addUser, validateUser, getUsers, deleteUser, updateUser, getUser}
+    const user = users.find(u => u.id === id)
+
+    if (!user) return
+
+    user.lastSeen = new Date().toISOString()
+
+    await fs.writeFile('userFile.txt', JSON.stringify(users, null, 2))
+}
+
+
+export{ addUser, validateUser, getUsers, deleteUser, updateUser, getUser, updateLastSeen}
 
 
 
