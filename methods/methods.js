@@ -45,7 +45,7 @@ document.querySelector('#renameBtn').addEventListener('click', async (event) =>{
            body: JSON.stringify({chatName: trimmedName})
         })
         if (!response.ok) throw new Error('status' + response.status)
-        window.location = '/'
+        window.location.reload()
     } catch(error) {
         alert('Kunne ikke gemme navnet: ' + error.message)
     }

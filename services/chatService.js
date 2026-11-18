@@ -31,6 +31,12 @@ async function updateChat(chat) {
     })
 }
 
+async function renameChat(id, chatName) {
+    await updateDoc(doc(chatCollection, id), {
+        chatName: chatName
+    })
+}
+
 //Metoder for chat
 async function getChats() {
 let chats = []
@@ -55,4 +61,4 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
 
 
 
-export{getChat, getChats, addChat, updateChat }
+export{getChat, getChats, addChat, updateChat, renameChat }
