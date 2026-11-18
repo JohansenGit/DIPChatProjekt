@@ -17,11 +17,14 @@ html
 
                 button(type="button" onclick="window.location.href='/users/administration'") Administrer brugere
 
-        form(action="/logout" method="POST")
-            button(type="submit") Log ud
+                form(action="/logout" method="POST")
+                    button.logoutBtn(type="submit") Log ud
+
+            main
+                h2 Dine samtaler
 
                 ul
                     each chat in chats
                         li
                             a.chatLink(href=`/chats/${chat.id}`)= chat.chatName
-                            button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
+                            button.deleteBtn(type="button" data-id=chat.id data-type="chats") Slet chat
