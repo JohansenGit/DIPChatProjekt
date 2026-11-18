@@ -12,6 +12,7 @@ login.post('/', async (req, res) => {
     const user = await validateUser(username, password)
 
     if (user !== undefined) {
+        req.ses
         req.session.isLoggedIn = user.id
         req.session.username = username
         req.session.level = user.level

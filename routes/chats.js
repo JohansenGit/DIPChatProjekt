@@ -21,9 +21,10 @@ chats.get('/createChat', (req, res) => {
 });
 
 //Hent alle beskeder for en bruger
+// Hent alle beskeder for en bruger
 chats.get('/messages', async (req, res) => {
     if (req.session.isLoggedIn) {
-        const userID = req.session.userID
+        const username = req.session.username
         const allChats = await getChats()
         let userMessages = []
 
@@ -34,11 +35,11 @@ chats.get('/messages', async (req, res) => {
                 messages = chat.messageArray
             }
 
-            const filteredMessages = messages.filter(message => message.owner === userID)
-
-            for (const message of filteredMessages) {
-                message.chatName = chat.chatName
-                userMessages.push(message)
+            for (const message of messages) {
+                if (message.owner === username) {
+                    message.chatName = chat.chatName
+                    userMessages.push(message)
+                }
             }
         }
 
