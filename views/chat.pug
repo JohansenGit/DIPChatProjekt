@@ -1,7 +1,9 @@
 html
     head
         title= chat.chatName
+        h1= chat.chatName
         button(type="button" onclick="window.location.href='/chats/'") Tilbage
+        button#renameBtn(type="button" data-id=chat.id data-name = chat.name) omdøb
     body
         ul
             each message in chat.messageArray
