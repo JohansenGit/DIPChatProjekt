@@ -3,7 +3,7 @@ html
         title Brugeradministration
 
         body 
-
+        script(src="/methods/methods.js" defer)
         a(href="/chats/")
             button(type="button") Chats
 
@@ -20,6 +20,7 @@ html
                 th Niveau
                 th Oprettet Dato
                 th Online
+                th
             tr
                 each user in users
                     tr
@@ -27,8 +28,7 @@ html
                         td= user.level
                         td= user.creationDate
                         td=null
-                        
-                        
-        
+                        td 
+                            button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
                 
                     

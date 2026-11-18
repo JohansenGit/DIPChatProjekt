@@ -29,20 +29,18 @@ app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/chats', chatsRouter)
 app.use('/chats', messagesRouter)
-app.use('/userAdministration', usersRouter)
-app.get('/', (req, res) => {
-    res.render('login')    
-})
 
-// logout route
+// Logout
 app.post('/logout', (req, res) => {
-    req.session.destroy()
-    res.redirect('/')
+    req.session.destroy(() => {
+        res.redirect('/')
+    })
 })
 
-//app.use('/messages', messagesRouter)
+app.get('/', (req, res) => {
+    res.render('login')
+})
 
 app.listen(6767)
-console.log("Siden kører på port 6767")
-
+console.log('Siden kører på port 6767')
 
