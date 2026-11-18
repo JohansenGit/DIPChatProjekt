@@ -72,5 +72,9 @@ async function deleteUserMessages(id) {
     }
 }
 
+async function deleteChat(id) {
+    await deleteDoc(doc(chatCollection, id))
+}
 
-export{getChat, getChats, addChat, updateChat, renameChat, deleteUserMessages }
+
+export{getChat, getChats, addChat, updateChat, renameChat, deleteUserMessages, deleteChat }
