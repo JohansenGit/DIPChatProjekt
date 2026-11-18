@@ -6,6 +6,14 @@ import { randomUUID } from 'node:crypto'
 const messages = express.Router()
 
 messages.post('/:id/messages', async (req, res, next) => {
+    const userlvl = req.session.level
+    
+   if (userlvl < 2) {
+    return res.status(403).json({
+        success: false,
+        message: 'You do not have permission to send messages!'
+    })
+}
     try {
         const chat = await getChat(req.params.id)
 

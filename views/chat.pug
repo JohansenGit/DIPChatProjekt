@@ -7,6 +7,10 @@ html
             each message in chat.messageArray
                 li= message.message
 
-        form(action="/chats/" + chat.id + "/messages" method="POST")
-            input(type="text" name="message" placeholder="Message...") 
+        form#messageForm(action="/chats/" + chat.id + "/messages" method="POST")
+            input#messageInput(type="text" name="message" placeholder="Message...")
             button(type="submit") Send
+
+        p#errorMessage(style="color: red")
+
+        script(src="/methods/message.js" defer)

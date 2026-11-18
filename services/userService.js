@@ -67,19 +67,14 @@ async function getUser(id){
 }
 
 
-async function validateUser(username, password){
+async function validateUser(username, password) {
     const users = await getUsers()
 
     let hashedPassword = crypto.createHash('sha256').update(password).digest('hex')
-    const index = users.findIndex(u=>u.username == username && u.password == hashedPassword)
 
-    
-    let isLoggedIn = undefined
+    const user = users.find(u => u.username == username && u.password == hashedPassword)
 
-    if (index >= 0) {
-        isLoggedIn = users[index].id
-    }
-    return isLoggedIn
+    return user
 }
 
 
