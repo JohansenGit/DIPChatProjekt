@@ -1,0 +1,61 @@
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 35px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #171923;
+    color: #f1f1f1;
+}
+
+/* HEADER */
+h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* CHAT LIST */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    max-width: 850px;
+}
+
+/* INDIVIDUAL CHAT */
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    background: #222633;
+    border: 1px solid #343a4a;
+    border-radius: 12px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+li:hover {
+    background: #292f40;
+    transform: translateX(3px);
+}
+
+/* CHAT NAME */
+li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+li a:hover {
+    color: #8b9cff;
+}
+
+/* BUTTONS */

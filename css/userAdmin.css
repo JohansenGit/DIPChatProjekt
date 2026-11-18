@@ -1,14 +1,154 @@
-.status-circle {
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 35px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #171923;
+    color: #f1f1f1;
+}
+
+/* HEADING */
+h1 {
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+/* USER ADMIN CONTAINER */
+.userAdminContainer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #222633;
+    border: 1px solid #343a4a;
+    border-radius: 14px;
+}
+
+/* USER LIST */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* USER ITEM */
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    background: #292f40;
+    border: 1px solid #41485c;
+    border-radius: 10px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+li:hover {
+    background: #343b50;
+    transform: translateX(3px);
+}
+
+/* USER INFORMATION */
+li strong {
+    color: #8b9cff;
+    font-size: 16px;
+}
+
+li span {
+    color: #c5c9d6;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    background: #5865f2;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #4752c4;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* DELETE BUTTON */
+.deleteBtn {
+    background: #b42332;
+}
+
+.deleteBtn:hover {
+    background: #8f1d29;
+}
+
+/* ADMIN BUTTON */
+.adminBtn {
+    background: #5865f2;
+}
+
+.adminBtn:hover {
+    background: #4752c4;
+}
+
+/* BACK BUTTON */
+.backBtn {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    padding: 11px 18px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: #41485c;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
-.online {
-    background-color: green;
+.backBtn:hover {
+    background: #525b73;
 }
 
-.offline {
-    background-color: red;
+/* EMPTY MESSAGE */
+.emptyMessage {
+    padding: 20px;
+    border-radius: 10px;
+    background: #292f40;
+    color: #a0a5b5;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+    body {
+        padding: 15px;
+    }
+
+    .userAdminContainer {
+        padding: 15px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    li button {
+        width: 100%;
+    }
 }
