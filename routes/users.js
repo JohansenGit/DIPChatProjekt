@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import {getUser, getUsers, deleteUser, updateUser, addUser, updateLastSeen } from '../services/userService.js'
 import { User } from '../models/user.js'
-import crypto from 'crypto';
+import crypto from 'crypto'
 
 const users = Router()
 
@@ -56,14 +56,14 @@ users.put('/:id', (req, res) => {
 users.post('/createUser', async (req, res) => {
     const { username, password, level } = req.body 
 
-    const id = crypto.randomUUID();
+    const id = crypto.randomUUID()
     const passwordHash = crypto.createHash('sha256').update(password).digest('hex')
 
     //await addUser(username, passwordHash, Date().toLocaleString(), level, id)
     await addUser(username, passwordHash, Date().toLocaleString(), level, id)
 
     res.redirect('/chats')
-});
+})
 
 users.post('/heartbeat', async (req, res, next) => {
     try {
@@ -80,6 +80,19 @@ users.post('/heartbeat', async (req, res, next) => {
 })
 users.post('/:id', (req, res) =>{
     
+})
+
+
+users.delete('/:id/deleteUser', async (req, res, next) => {
+    try {
+        const id = req.params.id
+
+        await deleteUser(id)
+        res.sendStatus(200)
+        
+    } catch (error) {
+        next(error)
+    }
 })
 
 export {users}

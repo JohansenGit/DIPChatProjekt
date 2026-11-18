@@ -2,6 +2,7 @@ import { dbRef } from "./service.js"
 import {User} from '../models/user.js'
 import crypto from 'crypto'
 import { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore"
+import { deleteUserMessages } from "./chatService.js"
 
 import fs from 'node:fs/promises'
 
@@ -23,8 +24,18 @@ const userConverter = {
 const userCollection = collection(dbRef, 'users')
 
 
-async function deleteUser(id){
-    await deleteDoc(doc(collection(dbRef, 'users'), id))
+async function deleteUser(id) {
+    //methode til at slette messages tilhørende user
+    await deleteUserMessages(id);
+
+    //henter users
+    const users = await getUsers();
+
+    //lavet ny array uden user der skal slettes
+    const updateUsers = users.filter(user => user.id !== id);
+
+    // updatere filen med users
+    await fs.writeFile('userFile.txt', JSON.stringify(updateUsers, null, 2))
 }
 
 function updateUser(id){
@@ -58,7 +69,7 @@ async function addUser(username, password, creationDate, level, id){
 
 async function getUser(id){
     try {
-        const users = getUsers()
+        const users = await getUsers()
         const user = users.find(u => u.id === id)
         return user
     } catch {

@@ -2,6 +2,8 @@ html
     head
         title Brugeradministration
         link(rel="stylesheet" href="/css/userAdmin.css")
+        script(src="/methods/userAdmin.js" defer)
+        script(src="/methods/methods.js" defer)
 
     body
         a(href="/chats/")
@@ -30,5 +32,8 @@ html
                             span.status-circle.online
                         else
                             span.status-circle.offline
-
-        script(src="/methods/userAdmin.js" defer)
+                     td 
+                            button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
+                       
+                
+                    

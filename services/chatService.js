@@ -2,6 +2,7 @@ import { dbRef } from "./service.js"
 import {Chat} from '../models/chat.js'
 import { collection, addDoc, getDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore"
 
+
 const chatCollection = collection(dbRef, 'chats')
 
 const chatConverter = {
@@ -59,6 +60,18 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
     await addDoc(chatCollection.withConverter(chatConverter), chat)
 }
 
+async function deleteUserMessages(ownerId) {
+    const chatsSnapshot = await getDocs(collection(dbRef, 'chats'));
+
+    for (const chatDoc of chatsSnapshot.docs) {
+        const chatData = chatDoc.data()
+
+        const updatedMessages = chatData.messageArray.filter(message => message.owner !== ownerId)
+
+        await updateDoc(doc(dbRef, 'chats', chatDoc.id), {messageArray: updatedMessages})
+    }
+    
+}
 
 
-export{getChat, getChats, addChat, updateChat, renameChat }
+export{getChat, getChats, addChat, updateChat, renameChat, deleteUserMessages }

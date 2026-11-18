@@ -4,20 +4,23 @@ const link = '/user/' + nameInput.dataset.id */
 //Slet bruger knap
 document.querySelectorAll('.deleteBtn').forEach(button => {
     button.addEventListener('click', async (event) => {
-        console.log("delete")
         const id = event.currentTarget.dataset.id
         const type = event.currentTarget.dataset.type
 
-        event.preventDefault()
-
         if (!confirm('Er du sikker på du vil slette?')) return
 
-        const response = await fetch(`/${type}/${id}`, {
-            method: 'DELETE'
-        })
+        try {
+            const response = await fetch(`/${type}/${id}/deleteUser`, {
+                method: 'DELETE'
+            })
 
-        if (response.ok) {
-            window.location = `/${type}`
+            if (response.ok) {
+                window.location.href = 'users/administration'
+            } else {
+                console.log('Kunne ikke slette brugeren:', response.status)
+            }
+        } catch (error) {
+            console.log('Fejl:', error)
         }
     })
 })
