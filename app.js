@@ -24,7 +24,7 @@ app.use(session({
 
 
 
-//Middleware
+//Middleware til routes
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/chats', chatsRouter)
@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
     res.render('login')    
 })
 
+// logout route
 app.post('/logout', (req, res) => {
     req.session.destroy()
     res.redirect('/')
