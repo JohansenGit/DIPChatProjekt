@@ -4,7 +4,10 @@ html
         h1= chat.chatName
     body
         button(type="button" onclick="window.location.href='/chats/'") Tilbage
-        button#renameBtn(type="button" data-id=chat.id data-name = chat.chatName) omdøb
+        if level >= 2
+            button#renameBtn(type="button" data-id=chat.id data-name=chat.chatName) Omdøb
+
+    body
         ul
             each message in chat.messageArray
                 li

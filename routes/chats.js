@@ -6,17 +6,26 @@ const chats = express.Router()
 
 chats.get('/', async (req, res) => {
     if (req.session.isLoggedIn) {
-        const userID = req.session.userID
         const chats = await getChats()
-        res.render('chats', { chats: chats })
+
+        res.render('chats', {
+            chats: chats,
+            level: req.session.level
+        })
     } else {
         res.render('login')
     }
-    
 })
 
-//CreateChat side:
 chats.get('/createChat', (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+
+    if (Number(req.session.level) < 2) {
+        return res.status(403).send('Du har ikke adgang til denne side!')
+    }
+
     res.render('createChat')
 });
 
@@ -42,28 +51,52 @@ chats.get('/messages', async (req, res) =>{
     }
 })
 
-chats.get('/:id', async (req, res)=>{
+chats.get('/:id', async (req, res) => {
     const chat = await getChat(req.params.id)
-    res.render('chat', { chat: chat})
+
+    res.render('chat', {
+        chat: chat,
+        level: req.session.level
+    })
 })
 
 
-chats.delete('/:id', async (req, res, next) =>{
+chats.delete('/:id', async (req, res, next) => {
     try {
+        if (!req.session.isLoggedIn) {
+            return res.sendStatus(401)
+        }
+
+        if (Number(req.session.level) !== 3) {
+            return res.sendStatus(403)
+        }
+
         await deleteChat(req.params.id)
-        res.status (200).redirect('/chats')
+        res.sendStatus(200)
+
     } catch (error) {
         next(error)
     }
 })
 
 chats.put('/:id', async (req, res, next) => {
-    try{
+    try {
+        if (!req.session.isLoggedIn) {
+            return res.sendStatus(401)
+        }
+
+        if (Number(req.session.level) < 2) {
+            return res.sendStatus(403)
+        }
+
         const { chatName } = req.body
+
         await renameChat(req.params.id, chatName)
+
         res.status(200).json({ success: true })
-    } catch (error){
-        next (error)
+
+    } catch (error) {
+        next(error)
     }
 })
 

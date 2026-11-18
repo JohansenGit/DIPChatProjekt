@@ -1,10 +1,46 @@
 [
   {
+    "username": "bruger",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "creationDate": "Tue Nov 17 2026 09:10:38 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "1",
+    "id": "09742b36-d6a7-4c21-a227-8ac08d9a0dd8"
+  },
+  {
+    "username": "bruger123",
+    "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "creationDate": "Tue Nov 17 2026 09:10:46 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "1",
+    "id": "c5cba4fd-ad53-4f82-91cd-c0c9949e2e3e"
+  },
+  {
+    "username": "bryger125",
+    "password": "0f8ef3377b30fc47f96b48247f463a726a802f62f3faa03d56403751d2f66c67",
+    "creationDate": "Tue Nov 17 2026 09:10:54 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "1",
+    "id": "996dda48-1044-4c2a-a8c0-a15bf6341b8e"
+  },
+  {
+    "username": "nem",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "creationDate": "Tue Nov 17 2026 09:13:44 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "1",
+    "id": "e08f612d-ec6d-4c3c-92fe-93559c01cad5",
+    "lastSeen": "2026-11-18T11:46:16.664Z"
+  },
+  {
+    "username": "jmj",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "creationDate": "Tue Nov 17 2026 11:56:35 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "3",
+    "id": "e7aad716-a497-4b58-a64b-58b3067c6fa9"
+  },
+  {
     "username": "Elias",
     "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
     "creationDate": "Wed Nov 18 2026 10:48:14 GMT+0100 (Central European Standard Time)",
     "level": "3",
     "id": "4c3a81ef-739d-4271-9c1e-8fb1a0187763",
-    "lastSeen": "2026-11-18T11:44:44.787Z"
+    "lastSeen": "2026-11-18T11:32:16.651Z"
   }
 ]

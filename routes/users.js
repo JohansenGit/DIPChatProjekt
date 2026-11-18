@@ -16,6 +16,17 @@ users.get('/createUser', (req, res) => {
 });
 
 users.get('/administration', async (req, res) => {
+
+    // Check if user is logged in
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+
+    // Check if user has level 3
+    if (req.session.level != 3) {
+        return res.status(403).send('Du har ikke adgang til denne side!')
+    }
+
     const users = await getUsers()
 
     users.forEach(user => {
@@ -26,6 +37,7 @@ users.get('/administration', async (req, res) => {
             user.isOnline = false
         }
     })
+
     res.render('userAdministration', { users })
 })
 
