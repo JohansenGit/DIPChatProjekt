@@ -21,7 +21,7 @@ users.get('/administration', async (req, res) => {
     users.forEach(user => {
         if (user.lastSeen) {
             const timeSinceLastSeen = Date.now() - new Date(user.lastSeen).getTime()
-            user.isOnline = timeSinceLastSeen < 5000
+            user.isOnline = timeSinceLastSeen < 30000
         } else {
             user.isOnline = false
         }

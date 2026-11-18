@@ -25,7 +25,7 @@ html
                     td= user.level
                     td= user.creationDate
                     td
-                        if user.online
+                        if user.isOnline
                             span.status-circle.online
                         else
                             span.status-circle.offline
