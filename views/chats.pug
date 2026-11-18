@@ -6,7 +6,7 @@ html
     body
         button(type="button" onclick="window.location.href='/chats/createChat'") Opret chat
 
-        button(type="button" onclick="window.location.href='/messages'") Se dine beskeder
+        button(type="button" onclick="window.location.href='/chats/messages'") Se dine beskeder
 
         button(type="button" onclick="window.location.href='/users/administration'") Administrer brugere
 
@@ -17,3 +17,4 @@ html
                 li
                     a(href=`/chats/${chat.id}`)= chat.chatName
                     button.deleteBtn(data-id=chat.id data-type="chats") Slet chat
+                    

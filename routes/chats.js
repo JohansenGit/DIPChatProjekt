@@ -30,7 +30,7 @@ chats.get('/messages', async (req, res) =>{
 
         for(const chat of allChats){
             for(const message of chat.messageArray){
-                if(message.userID === userID){
+                if(message.owner === userID){
                     userMessages.push(message)
                 }
             }
@@ -59,6 +59,7 @@ chats.delete('/:id', async (req, res, next) =>{
 
 chats.put('/:id', (req, res) => {
     try{
+        const { chatName } = req.body
         updateChat(req.params.id)
         res.redirect('/chats')
     } catch (error){

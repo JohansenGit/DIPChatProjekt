@@ -33,5 +33,12 @@
     "creationDate": "Tue Nov 17 2026 11:56:35 GMT+0100 (Centraleuropæisk normaltid)",
     "level": "3",
     "id": "e7aad716-a497-4b58-a64b-58b3067c6fa9"
+  },
+  {
+    "username": "nybruger",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "creationDate": "Wed Nov 18 2026 08:47:29 GMT+0100 (Centraleuropæisk normaltid)",
+    "level": "3",
+    "id": "90f2ba76-7bbe-41e0-82fe-06f8d8bac387"
   }
 ]

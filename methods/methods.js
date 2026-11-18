@@ -1,7 +1,7 @@
 /* const nameInput = document.querySelector('input#name')
 const link = '/user/' + nameInput.dataset.id */
 
-
+//Slet bruger knap
 document.querySelectorAll('.deleteBtn').forEach(button => {
     button.addEventListener('click', async (event) => {
         console.log("delete")
@@ -22,18 +22,27 @@ document.querySelectorAll('.deleteBtn').forEach(button => {
     })
 })
 
-document.querySelector('#editBtn').addEventListener('click', async (event) =>{
+
+//Rename chat knap
+const renameBtn = document.querySelector('#renameBtn')
+
+document.querySelector('#renameBtn').addEventListener('click', async (event) =>{
     event.preventDefault()
-    const name = nameInput.value.trim()
-    const type = typeInput.value.trim()
-    if(!name) return alert('Navnet må ikke være tomt')
-    if(!type) return alert ('Type må ikke være tomt')
+    const chatID = renameBtn.dataset.id
+    const currentName = renameBtn.dataset.name
+    const link = `/chats/${chatID}`
+    const name = window.prompt('Indtast nyt chatnavn', currentName)
+
+    if (name === null) return
+
+    const trimmedName = name.trim()
+    if(!trimmedName) return alert('Navnet må ikke være tomt')
 
     try{
         const response = await fetch(link, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name})
+           body: JSON.stringify({chatName: trimmedName})
         })
         if (!response.ok) throw new Error('status' + response.status)
         window.location = '/'
