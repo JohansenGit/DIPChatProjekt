@@ -1,5 +1,5 @@
 import express from 'express'
-import { getChats, getChat, addChat } from '../services/chatService.js'
+import { getChats, getChat, addChat, renameChat } from '../services/chatService.js'
 
 
 const chats = express.Router()
@@ -57,11 +57,11 @@ chats.delete('/:id', async (req, res, next) =>{
     }
 })
 
-chats.put('/:id', (req, res) => {
+chats.put('/:id', async (req, res, next) => {
     try{
         const { chatName } = req.body
-        updateChat(req.params.id)
-        res.redirect('/chats')
+        await renameChat(req.params.id, chatName)
+        res.status(200).json({ success: true })
     } catch (error){
         next (error)
     }
