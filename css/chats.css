@@ -5,36 +5,114 @@
 
 body {
     margin: 0;
-    padding: 35px;
     min-height: 100vh;
+    padding: 40px 20px;
     font-family: Arial, sans-serif;
     background: #171923;
     color: #f1f1f1;
 }
 
+/* MAIN CONTAINER */
+.pageContainer {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
 /* HEADER */
+header {
+    margin-bottom: 35px;
+}
+
 h1 {
-    margin-bottom: 30px;
-    font-size: 30px;
+    margin: 0 0 10px;
     color: #ffffff;
+    font-size: 34px;
+}
+
+.chatSubtitle {
+    margin: 0;
+    color: #a0a5b5;
+    font-size: 15px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 45px;
+    padding: 20px;
+    background: #222633;
+    border: 1px solid #343a4a;
+    border-radius: 12px;
+}
+
+/* BUTTONS */
+button {
+    padding: 12px 17px;
+    border: none;
+    border-radius: 8px;
+    background: #41485c;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #525b73;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* CREATE BUTTON */
+.createBtn {
+    background: #5865f2;
+}
+
+.createBtn:hover {
+    background: #4752c4;
+}
+
+/* LOGOUT BUTTON */
+.logoutBtn {
+    margin-left: auto;
+    background: #b42332;
+}
+
+.logoutBtn:hover {
+    background: #8f1d29;
+}
+
+/* CHAT SECTION */
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 22px;
 }
 
 /* CHAT LIST */
 ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     list-style: none;
     padding: 0;
-    margin: 25px 0;
-    max-width: 850px;
+    margin: 0;
 }
 
-/* INDIVIDUAL CHAT */
+/* CHAT CARD */
 li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
     padding: 18px 22px;
-    margin-bottom: 12px;
     background: #222633;
     border: 1px solid #343a4a;
     border-radius: 12px;
@@ -47,15 +125,52 @@ li:hover {
 }
 
 /* CHAT NAME */
-li a {
+.chatLink {
+    flex: 1;
     color: #ffffff;
-    text-decoration: none;
     font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
-li a:hover {
+.chatLink:hover {
     color: #8b9cff;
 }
 
-/* BUTTONS */
+/* DELETE BUTTON */
+.deleteBtn {
+    background: #b42332;
+    font-size: 13px;
+}
+
+.deleteBtn:hover {
+    background: #8f1d29;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav button {
+        width: 100%;
+    }
+
+    .logoutBtn {
+        margin-left: 0;
+    }
+
+    li {
+        padding: 15px;
+    }
+}

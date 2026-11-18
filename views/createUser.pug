@@ -1,21 +1,30 @@
 html
     head
-        title Opret Ny Bruger
+        title Opret ny bruger
         script(src="/methods.js" defer)
         link(rel="stylesheet" href="/css/createUser.css")
 
     body
-        label Opret Ny Bruger
-        form(action="/users/createUser", method="POST")
-            label Brugernavn: 
-                input(type="text", name="username", placeholder="username")
-            label Kodeord: 
-                input(type="text", name="password", placeholder="password")
-            
-            label Bruger Niveau      
-                select(name="level")
-                    option(value="1") Level 1 - Læs chat
-                    option(value="2") Level 2 - Skriv og ændre 
-                    option(value="3") Level 3 - Admin
-        
-            button(type="submit") Opret Bruger
+        .createUserContainer
+            h1 Opret ny bruger
+            p.createUserSubtitle Opret en konto og vælg brugerens adgangsniveau
+
+            form(action="/users/createUser" method="POST")
+                .formGroup
+                    label(for="username") Brugernavn
+                    input#username(type="text" name="username" placeholder="Indtast brugernavn" required)
+
+                .formGroup
+                    label(for="password") Kodeord
+                    input#password(type="password" name="password" placeholder="Indtast kodeord" required)
+
+                .formGroup
+                    label(for="level") Bruger niveau
+                    select#level(name="level" required)
+                        option(value="1") Level 1 - Læs chat
+                        option(value="2") Level 2 - Skriv og ændre
+                        option(value="3") Level 3 - Admin
+
+                button(type="submit") Opret bruger
+
+            a.backBtn(href="/login") Tilbage til login

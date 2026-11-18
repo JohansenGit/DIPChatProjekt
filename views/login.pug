@@ -5,10 +5,13 @@ html
         link(rel="stylesheet" href="/css/login.css")
 
     body
-        label Login her:
-        form(action="/login", method="POST")
-             
-            input(type="text", name="username", placeholder="username")
+        .loginContainer
+            h1 Velkommen
+            p.loginSubtitle Log ind på din konto
 
-            input(type="text", name="password", placeholder="password")
-            button(type="submit") Login
+            form(action="/login" method="POST")
+                input(type="text" name="username" placeholder="Brugernavn" required)
+
+                input(type="password" name="password" placeholder="Adgangskode" required)
+
+                button(type="submit") Log ind
