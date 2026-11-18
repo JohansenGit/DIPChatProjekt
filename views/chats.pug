@@ -10,7 +10,8 @@ html
 
         button(type="button" onclick="window.location.href='/users/administration'") Administrer brugere
 
-        button(type="button" onclick="window.location.href='/login'") Log ud
+        form(action="/logout" method="POST")
+            button(type="submit") Log ud
 
         ul
             each chat in chats

@@ -60,17 +60,16 @@ async function addChat(chatName, creationDate, owner, messageArray, id){
     await addDoc(chatCollection.withConverter(chatConverter), chat)
 }
 
-async function deleteUserMessages(ownerId) {
+async function deleteUserMessages(id) {
     const chatsSnapshot = await getDocs(collection(dbRef, 'chats'));
 
     for (const chatDoc of chatsSnapshot.docs) {
         const chatData = chatDoc.data()
 
-        const updatedMessages = chatData.messageArray.filter(message => message.owner !== ownerId)
+        const updatedMessages = chatData.messageArray.filter(message => message.owner !== id)
 
         await updateDoc(doc(dbRef, 'chats', chatDoc.id), {messageArray: updatedMessages})
     }
-    
 }
 
 

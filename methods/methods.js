@@ -15,7 +15,7 @@ document.querySelectorAll('.deleteBtn').forEach(button => {
             })
 
             if (response.ok) {
-                window.location.href = 'users/administration'
+                window.location.href = '/users/administration'
             } else {
                 console.log('Kunne ikke slette brugeren:', response.status)
             }
