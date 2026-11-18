@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getUser, getUsers, deleteUser, updateUser, addUser } from '../services/userService.js'
+import {getUser, getUsers, deleteUser, updateUser, addUser, updateLastSeen } from '../services/userService.js'
 import { User } from '../models/user.js'
 import crypto from 'crypto';
 
@@ -16,10 +16,18 @@ users.get('/createUser', (req, res) => {
 });
 
 users.get('/administration', async (req, res) => {
-    const users = await getUsers();
+    const users = await getUsers()
 
-    res.render('userAdministration', { users });
-});
+    users.forEach(user => {
+        if (user.lastSeen) {
+            const timeSinceLastSeen = Date.now() - new Date(user.lastSeen).getTime()
+            user.isOnline = timeSinceLastSeen < 5000
+        } else {
+            user.isOnline = false
+        }
+    })
+    res.render('userAdministration', { users })
+})
 
 users.get('/:id', async (req, res)=>{
     const user = await getUser(req.params.id)
@@ -57,6 +65,19 @@ users.post('/createUser', async (req, res) => {
     res.redirect('/chats')
 });
 
+users.post('/heartbeat', async (req, res, next) => {
+    try {
+        if (!req.session.isLoggedIn) {
+            return res.sendStatus(401)
+        }
+
+        await updateLastSeen(req.session.isLoggedIn)
+
+        res.sendStatus(204)
+    } catch (error) {
+        next(error)
+    }
+})
 users.post('/:id', (req, res) =>{
     
 })

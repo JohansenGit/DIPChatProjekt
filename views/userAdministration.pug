@@ -1,15 +1,14 @@
 html
-    head 
+    head
         title Brugeradministration
+        link(rel="stylesheet" href="/css/userAdmin.css")
 
-        body 
-
+    body
         a(href="/chats/")
             button(type="button") Chats
 
         a(href="/users/createUser")
             button(type="button") Opret Bruger
-
 
         form(action="/logout" method="POST")
             button(type="submit") Log ud
@@ -20,15 +19,16 @@ html
                 th Niveau
                 th Oprettet Dato
                 th Online
-            tr
-                each user in users
-                    tr
-                        td= user.username
-                        td= user.level
-                        td= user.creationDate
-                        td=null
-                        
-                        
-        
-                
-                    
+
+            each user in users
+                tr
+                    td= user.username
+                    td= user.level
+                    td= user.creationDate
+                    td
+                        if user.isOnline
+                            span.status-circle.online
+                        else
+                            span.status-circle.offline
+
+        script(src="/methods/userAdmin.js" defer)
