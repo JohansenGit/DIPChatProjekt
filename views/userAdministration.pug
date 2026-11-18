@@ -1,3 +1,4 @@
+doctype html
 html
     head
         title Brugeradministration
@@ -6,21 +7,17 @@ html
         script(src="/methods/methods.js" defer)
 
     body
-        a(href="/chats/")
-            button(type="button") Chats
+        h1 Brugeradministration
 
-        a(href="/users/createUser")
-            button(type="button") Opret Bruger
-
-        form(action="/logout" method="POST")
-            button(type="submit") Log ud
+        a(href="/chats") Tilbage til chats
 
         table
             tr
                 th Brugernavn
                 th Niveau
-                th Oprettet Dato
+                th Oprettet dato
                 th Online
+                th Handling
 
             each user in users
                 tr
@@ -28,12 +25,9 @@ html
                     td= user.level
                     td= user.creationDate
                     td
-                        if user.isOnline
+                        if user.online
                             span.status-circle.online
                         else
                             span.status-circle.offline
-                     td 
-                            button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
-                       
-                
-                    
+                    td
+                        button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
