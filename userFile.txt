@@ -33,7 +33,8 @@
     "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
     "creationDate": "Tue Nov 17 2026 11:56:35 GMT+0100 (Centraleuropæisk normaltid)",
     "level": "3",
-    "id": "e7aad716-a497-4b58-a64b-58b3067c6fa9"
+    "id": "e7aad716-a497-4b58-a64b-58b3067c6fa9",
+    "lastSeen": "2026-11-18T11:21:36.901Z"
   },
   {
     "username": "Elias",

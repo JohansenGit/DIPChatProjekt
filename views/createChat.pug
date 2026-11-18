@@ -1,14 +1,19 @@
 html
     head
-        title Opret Ny chat
+        title Opret ny chat
         script(src="/methods.js" defer)
         link(rel="stylesheet" href="/css/createChat.css")
 
     body
-        label Opret Ny chat
-        form(action="/chats/createChat", method="POST")
-            label Chatnavn: 
-                input(type="text", name="chatName", placeholder="chatName")
-            
-            
-            button(type="submit") Opret chat
+        .createChatContainer
+            h1 Opret ny chat
+            p.createChatSubtitle Giv din nye samtale et navn
+
+            form(action="/chats/createChat" method="POST")
+                .formGroup
+                    label(for="chatName") Chatnavn
+                    input#chatName(type="text" name="chatName" placeholder="Indtast chatnavn" required)
+
+                button(type="submit") Opret chat
+
+            a.backBtn(href="/chats") Tilbage til chats

@@ -1,0 +1,168 @@
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 40px 25px;
+    font-family: Arial, sans-serif;
+    background: #171923;
+    color: #f1f1f1;
+}
+
+/* MAIN CONTAINER */
+.messagesContainer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+h1 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.subtitle {
+    margin: 0;
+    color: #a0a5b5;
+    font-size: 15px;
+}
+
+/* BACK BUTTON */
+.backBtn {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 1px solid #41485c;
+    border-radius: 8px;
+    background: #222633;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.backBtn:hover {
+    background: #343b50;
+}
+
+/* MESSAGE LIST */
+.messageList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* MESSAGE CARD */
+.messageCard {
+    padding: 22px;
+    background: #222633;
+    border: 1px solid #343a4a;
+    border-radius: 12px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.messageCard:hover {
+    background: #292f40;
+    transform: translateX(3px);
+}
+
+/* MESSAGE HEADER */
+.messageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #41485c;
+}
+
+.messageHeader strong {
+    color: #8b9cff;
+    font-size: 16px;
+}
+
+.messageHeader small {
+    color: #858b9c;
+    font-size: 12px;
+}
+
+/* MESSAGE TEXT */
+.messageCard p {
+    margin: 16px 0 0;
+    color: #e1e3eb;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* EMPTY STATE */
+.emptyState {
+    padding: 50px 25px;
+    background: #222633;
+    border: 1px solid #343a4a;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.emptyState h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.emptyState p {
+    margin-bottom: 25px;
+    color: #a0a5b5;
+    font-size: 14px;
+}
+
+/* CREATE LINK */
+.createLink {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #5865f2;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.createLink:hover {
+    background: #4752c4;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .messageCard {
+        padding: 17px;
+    }
+
+    .messageHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

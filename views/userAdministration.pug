@@ -1,33 +1,45 @@
-doctype html
 html
     head
         title Brugeradministration
         link(rel="stylesheet" href="/css/userAdmin.css")
         script(src="/methods/userAdmin.js" defer)
         script(src="/methods/methods.js" defer)
-        link(rel="stylesheet" href="/css/userAdmin.css")
+
     body
-        h1 Brugeradministration
+        .adminContainer
+            header
+                .headerText
+                    h1 Brugeradministration
+                    p.adminSubtitle Administrer brugere og se deres status
 
-        a(href="/chats") Tilbage til chats
+                a.backBtn(href="/chats") Tilbage til chats
 
-        table
-            tr
-                th Brugernavn
-                th Niveau
-                th Oprettet dato
-                th Online
-                th Handling
+            main
+                .tableContainer
+                    table
+                        thead
+                            tr
+                                th Brugernavn
+                                th Niveau
+                                th Oprettet dato
+                                th Online
+                                th Handling
 
-            each user in users
-                tr
-                    td= user.username
-                    td= user.level
-                    td= user.creationDate
-                    td
-                        if user.isOnline
-                            span.status-circle.online
-                        else
-                            span.status-circle.offline
-                    td
-                        button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
+                        tbody
+                            each user in users
+                                tr
+                                    td.usernameCell= user.username
+                                    td
+                                        span.levelBadge= user.level
+                                    td= user.creationDate
+                                    td
+                                        if user.isOnline
+                                            span.statusLabel.online
+                                                span.status-circle.online
+                                                | Online
+                                        else
+                                            span.statusLabel.offline
+                                                span.status-circle.offline
+                                                | Offline
+                                    td
+                                        button(type="button" class="deleteBtn" data-id=user.id data-type="users") Slet
