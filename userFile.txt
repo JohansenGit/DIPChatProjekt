@@ -26,7 +26,7 @@
     "creationDate": "Tue Nov 17 2026 09:13:44 GMT+0100 (Centraleuropæisk normaltid)",
     "level": "1",
     "id": "e08f612d-ec6d-4c3c-92fe-93559c01cad5",
-    "lastSeen": "2026-11-18T11:46:16.664Z"
+    "lastSeen": "2026-11-18T12:11:38.655Z"
   },
   {
     "username": "jmj",
@@ -41,6 +41,6 @@
     "creationDate": "Wed Nov 18 2026 10:48:14 GMT+0100 (Central European Standard Time)",
     "level": "3",
     "id": "4c3a81ef-739d-4271-9c1e-8fb1a0187763",
-    "lastSeen": "2026-11-18T11:32:16.651Z"
+    "lastSeen": "2026-11-18T12:11:18.659Z"
   }
 ]

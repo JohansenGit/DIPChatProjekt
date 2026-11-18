@@ -10,10 +10,17 @@ users.get('/', async (req, res)=>{
     res.render('users', { users: users })
 })
 
-//Opret bruger side:
 users.get('/createUser', (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+
+    if (Number(req.session.level) !== 3) {
+        return res.status(403).send('Du har ikke adgang til denne side!')
+    }
+
     res.render('createUser')
-});
+})
 
 users.get('/administration', async (req, res) => {
 
@@ -66,6 +73,14 @@ users.put('/:id', (req, res) => {
 })
 
 users.post('/createUser', async (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+
+    if (Number(req.session.level) !== 3) {
+        return res.status(403).send('Du har ikke adgang til denne handling!')
+    }
+
     const { username, password, level } = req.body 
 
     const id = crypto.randomUUID()
