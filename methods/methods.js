@@ -1,29 +1,34 @@
 /* const nameInput = document.querySelector('input#name')
 const link = '/user/' + nameInput.dataset.id */
 
-//Slet bruger knap
+// Slet bruger eller chat
 document.querySelectorAll('.deleteBtn').forEach(button => {
     button.addEventListener('click', async (event) => {
         const id = event.currentTarget.dataset.id
         const type = event.currentTarget.dataset.type
 
-        if (!confirm('Er du sikker på du vil slette?')) return
+        if (!confirm('Er du sikker på, du vil slette?')) return
 
         try {
-            const response = await fetch(`/${type}/${id}/deleteUser`, {
+            const response = await fetch(`/${type}/${id}`, {
                 method: 'DELETE'
             })
 
             if (response.ok) {
-                window.location.href = '/users/administration'
+                if (type === 'users') {
+                    window.location.href = '/users/administration'
+                } else if (type === 'chats') {
+                    window.location.href = '/chats'
+                }
             } else {
-                console.log('Kunne ikke slette brugeren:', response.status)
+                console.log('Kunne ikke slette:', response.status)
             }
         } catch (error) {
             console.log('Fejl:', error)
         }
     })
 })
+
 
 
 //Rename chat knap
