@@ -1,4 +1,5 @@
 import express from 'express'
+import { getUser } from '../services/userService.js'    
 import { Message } from '../models/message.js'
 import { getChat, updateChat } from '../services/chatService.js'
 import { randomUUID } from 'node:crypto'
@@ -17,13 +18,15 @@ messages.post('/:id/messages', async (req, res, next) => {
     try {
         const chat = await getChat(req.params.id)
 
+        const user = await getUser(req.session.isLoggedIn)
+
         const message = new Message(
             req.body.message,
             new Date(),
-            req.session.isLoggedIn,
+            user.username,
             chat.id,
             randomUUID()
-        )
+)
 
         chat.messageArray.push(message)
 

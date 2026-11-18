@@ -58,7 +58,7 @@ async function addUser(username, password, creationDate, level, id){
 
 async function getUser(id){
     try {
-        const users = getUsers()
+        const users = await getUsers()
         const user = users.find(u => u.id === id)
         return user
     } catch {
