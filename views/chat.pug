@@ -2,9 +2,9 @@ html
     head
         title= chat.chatName
         h1= chat.chatName
+    body
         button(type="button" onclick="window.location.href='/chats/'") Tilbage
         button#renameBtn(type="button" data-id=chat.id data-name = chat.chatName) omdøb
-    body
         ul
             each message in chat.messageArray
                 li
@@ -19,3 +19,4 @@ html
         p#errorMessage(style="color: red")
 
         script(src="/methods/message.js" defer)
+        script(src="/methods/methods.js" defer)
